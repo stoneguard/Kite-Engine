@@ -5,4 +5,4 @@ file(GLOB HEADERS "*.h")
 
 add_executable(game ${SOURCES} ${HEADERS})
 
-target_link_libraries (game tools)
+target_link_libraries (game engine tools)

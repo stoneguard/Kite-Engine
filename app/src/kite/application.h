@@ -1,8 +1,11 @@
 #ifndef APPLICATION_H
 #define APPLICATION_H
+#include "engine/types/objects.h"
 
 namespace kite
 {
+   class Engine;
+
    /*
       \brief Access point to engine
    */
@@ -11,11 +14,17 @@ namespace kite
    public:
       Application();
    
+      //init app and engine within
       bool Init();
+
+      //
       void Launch();
-      void AddObject();
+
+      //
+      void AddObject(EntityType type_);
+
    private:
-      //TODO engine
+      Engine* m_engine;
    };
 }
 #endif//APPLICATION_H
