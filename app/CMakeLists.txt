@@ -11,7 +11,8 @@ include(cmake/external_dependencies.cmake)
 include_directories(include)
 
 add_subdirectory(src/kite)    
-add_subdirectory(src/tools)    
+add_subdirectory(src/tools)
+add_subdirectory(src/engine)     
 add_subdirectory(src/3dparty/gl3w)
 
 if(CMAKE_SIZEOF_VOID_P GREATER 4)
