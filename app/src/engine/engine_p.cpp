@@ -3,6 +3,7 @@
 #include <GL/gl3w.h>
 #include <GLFW/glfw3.h>
 #include "tools/constants.h"
+#include "camera/camera.h"
 
 namespace kite
 {
@@ -128,16 +129,33 @@ namespace kite
    
       m_lastX = static_cast<float>(xpos);
       m_lastY = static_cast<float>(ypos);
+
+      Camera& camera = Camera::Instance();
+      camera.ProcessMouseMovement(xoffset, yoffset);
    }
    
    void EngineImpl::scroll_callback(double xoffset, double yoffset)
    {
-   
+      Camera& camera = Camera::Instance();
+      camera.ProcessMouseScroll(static_cast<float>(yoffset));
    }
    
    void EngineImpl::processInput(GLFWwindow * window)
    {
       if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
          glfwSetWindowShouldClose(window, true);
+
+      Camera& camera = Camera::Instance();
+      if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS)
+         camera.ProcessKeyboard(FORWARD, m_deltaTime);//move forward
+
+      if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS)
+         camera.ProcessKeyboard(BACKWARD, m_deltaTime);//move backward
+
+      if (glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS)
+         camera.ProcessKeyboard(LEFT, m_deltaTime);////move to the left
+
+      if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS)
+         camera.ProcessKeyboard(RIGHT, m_deltaTime);//move to the right
    }
 }
