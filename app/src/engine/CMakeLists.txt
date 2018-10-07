@@ -22,6 +22,9 @@ file(GLOB MODEL_HEADERS "model/*.h")
 file(GLOB TEXTURE_SOURCES "texture/*.cpp")
 file(GLOB TEXTURE_HEADERS "texture/*.h")
 
+source_group("Sources" FILES ${SOURCES})
+source_group("Headers" FILES ${HEADERS})
+
 source_group("Headers\\entities\\ifc" FILES ${SHARED_ENTITIES_IFC_HEADERS})
 
 source_group("Sources\\camera" FILES ${CAMERA_SOURCES})
@@ -32,6 +35,8 @@ source_group("Headers\\model" FILES ${MODEL_HEADERS})
 
 source_group("Sources\\texture" FILES ${TEXTURE_SOURCES})
 source_group("Headers\\texture" FILES ${TEXTURE_HEADERS})
+
+source_group("Public Headers" FILES ${PUBLIC_HEADERS})
 
 include_directories(${GLM_INCLUDE_PATH})
 include_directories(${GL3W_INCLUDE_PATH})

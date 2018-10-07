@@ -2,7 +2,10 @@
 #define RESOURCE_MANAGER_H
 #include <string>
 
+//returns home(root) directory
 #define _P(path) std::string(std::string(ResourceManager::Instance().GetRootDirectory()) + std::string(path)).c_str()
+
+//returns resource directory
 #define _R(path) std::string(std::string(ResourceManager::Instance().GetResourceDirectory()) + std::string(path)).c_str()
 
 namespace kite
