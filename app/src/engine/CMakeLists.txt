@@ -22,6 +22,10 @@ file(GLOB MODEL_HEADERS "model/*.h")
 file(GLOB TEXTURE_SOURCES "texture/*.cpp")
 file(GLOB TEXTURE_HEADERS "texture/*.h")
 
+#shaders
+file(GLOB SHADERS_SOURCES "shaders/*.cpp")
+file(GLOB SHADERS_HEADERS "shaders/*.h")
+
 source_group("Sources" FILES ${SOURCES})
 source_group("Headers" FILES ${HEADERS})
 
@@ -35,6 +39,9 @@ source_group("Headers\\model" FILES ${MODEL_HEADERS})
 
 source_group("Sources\\texture" FILES ${TEXTURE_SOURCES})
 source_group("Headers\\texture" FILES ${TEXTURE_HEADERS})
+
+source_group("Sources\\shaders" FILES ${SHADERS_SOURCES})
+source_group("Headers\\shaders" FILES ${SHADERS_HEADERS})
 
 source_group("Public Headers" FILES ${PUBLIC_HEADERS})
 
@@ -53,7 +60,8 @@ ${SHARED_ENTITIES_IFC_HEADERS}
 ${CAMERA_SOURCES} ${CAMERA_HEADERS}
 ${MODEL_SOURCES} ${MODEL_HEADERS}
 ${TEXTURE_SOURCES} ${TEXTURE_HEADERS}
+${SHADERS_SOURCES} ${SHADERS_HEADERS} 
 )
-set_target_properties(tools PROPERTIES DEBUG_POSTFIX "d")
+set_target_properties(engine PROPERTIES DEBUG_POSTFIX "d")
 
 target_link_libraries (engine tools ${ASSIMP_LIBRARY_DEBUG} ${GLFW_LIBRARY_DEBUG} ${PUGIXML_LIBRARY_DEBUG} ${SOIL_LIBRARY_DEBUG} gl3w)
