@@ -77,7 +77,7 @@ int main(int argc, char* argv[])
    Application instance;
    if (instance.Init())
    {
-      //TODO add objects
+      instance.AddObject(kite::ATMOSPHERE);
 
       instance.Launch();
    }

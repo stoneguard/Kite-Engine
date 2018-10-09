@@ -13,7 +13,8 @@ namespace kite
    {
    public:
       Renderer() = default;
-   
+      ~Renderer();
+
       //add new entity
       void AddEntity(I3DEntity* entity_);
    

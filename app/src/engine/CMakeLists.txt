@@ -10,6 +10,10 @@ file(GLOB PUBLIC_HEADERS
 ##entities
 file(GLOB SHARED_ENTITIES_IFC_HEADERS "entities/ifc/*.h")
 
+#atmosphere
+file(GLOB ATMOSPHERE_SOURCES "entities/atmosphere/*.cpp")
+file(GLOB ATMOSPHERE_HEADERS "entities/atmosphere/*.h")
+
 #camera
 file(GLOB CAMERA_SOURCES "camera/*.cpp")
 file(GLOB CAMERA_HEADERS "camera/*.h")
@@ -22,14 +26,21 @@ file(GLOB MODEL_HEADERS "model/*.h")
 file(GLOB TEXTURE_SOURCES "texture/*.cpp")
 file(GLOB TEXTURE_HEADERS "texture/*.h")
 
-#shaders
+##shaders
 file(GLOB SHADERS_SOURCES "shaders/*.cpp")
 file(GLOB SHADERS_HEADERS "shaders/*.h")
+
+#atmosphere shaders
+file(GLOB SHADERS_ATMOSPHERE_SOURCES "shaders/atmosphere/*.cpp")
+file(GLOB SHADERS_ATMOSPHERE_HEADERS "shaders/atmosphere/*.h")
 
 source_group("Sources" FILES ${SOURCES})
 source_group("Headers" FILES ${HEADERS})
 
 source_group("Headers\\entities\\ifc" FILES ${SHARED_ENTITIES_IFC_HEADERS})
+
+source_group("Sources\\entities\\atrmosphere" FILES ${ATMOSPHERE_SOURCES})
+source_group("Headers\\entities\\atrmosphere" FILES ${ATMOSPHERE_HEADERS})
 
 source_group("Sources\\camera" FILES ${CAMERA_SOURCES})
 source_group("Headers\\camera" FILES ${CAMERA_HEADERS})
@@ -42,6 +53,9 @@ source_group("Headers\\texture" FILES ${TEXTURE_HEADERS})
 
 source_group("Sources\\shaders" FILES ${SHADERS_SOURCES})
 source_group("Headers\\shaders" FILES ${SHADERS_HEADERS})
+
+source_group("Sources\\shaders\\atmosphere" FILES ${SHADERS_ATMOSPHERE_SOURCES})
+source_group("Headers\\shaders\\atmosphere" FILES ${SHADERS_ATMOSPHERE_HEADERS})
 
 source_group("Public Headers" FILES ${PUBLIC_HEADERS})
 
@@ -61,6 +75,8 @@ ${CAMERA_SOURCES} ${CAMERA_HEADERS}
 ${MODEL_SOURCES} ${MODEL_HEADERS}
 ${TEXTURE_SOURCES} ${TEXTURE_HEADERS}
 ${SHADERS_SOURCES} ${SHADERS_HEADERS} 
+${ATMOSPHERE_SOURCES} ${ATMOSPHERE_HEADERS}
+${SHADERS_ATMOSPHERE_SOURCES} ${SHADERS_ATMOSPHERE_HEADERS}
 )
 set_target_properties(engine PROPERTIES DEBUG_POSTFIX "d")
 

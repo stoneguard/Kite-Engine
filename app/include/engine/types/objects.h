@@ -6,7 +6,8 @@ namespace kite
    //types of entities
    enum EntityType
    {
-      WATER
+      WATER,
+      ATMOSPHERE
    };
 }
 

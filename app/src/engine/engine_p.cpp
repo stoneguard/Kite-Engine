@@ -4,6 +4,8 @@
 #include <GLFW/glfw3.h>
 #include "tools/constants.h"
 #include "camera/camera.h"
+//entities
+#include "entities/atmosphere/Atmosphere.h"
 
 namespace kite
 {
@@ -101,7 +103,16 @@ namespace kite
    
    void EngineImpl::AddEntity(EntityType type_)
    {
-      
+      switch (type_)
+      {
+      case kite::WATER:
+         break;
+      case kite::ATMOSPHERE:
+         m_renderer.AddEntity(new Atmosphere());
+         break;
+      default:
+         break;
+      }
    }
    
    I3DEntity* EngineImpl::GetEntity(EntityType type_) const
