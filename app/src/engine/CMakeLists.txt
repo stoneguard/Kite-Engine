@@ -10,6 +10,9 @@ file(GLOB PUBLIC_HEADERS
 ##entities
 file(GLOB SHARED_ENTITIES_IFC_HEADERS "entities/ifc/*.h")
 
+file(GLOB SHARED_ENTITIES_SOURCES "entities/*.cpp")
+file(GLOB SHARED_ENTITIES_HEADERS "entities/*.h")
+
 #atmosphere
 file(GLOB ATMOSPHERE_SOURCES "entities/atmosphere/*.cpp")
 file(GLOB ATMOSPHERE_HEADERS "entities/atmosphere/*.h")
@@ -46,6 +49,9 @@ source_group("Sources" FILES ${SOURCES})
 source_group("Headers" FILES ${HEADERS})
 
 source_group("Headers\\entities\\ifc" FILES ${SHARED_ENTITIES_IFC_HEADERS})
+
+source_group("Sources\\entities" FILES ${SHARED_ENTITIES_SOURCES})
+source_group("Headers\\entities" FILES ${SHARED_ENTITIES_HEADERS})
 
 source_group("Sources\\entities\\atrmosphere" FILES ${ATMOSPHERE_SOURCES})
 source_group("Headers\\entities\\atrmosphere" FILES ${ATMOSPHERE_HEADERS})
@@ -85,6 +91,7 @@ add_library(engine SHARED
 ${SOURCES} ${HEADERS} 
 ${PUBLIC_HEADERS} 
 ${SHARED_ENTITIES_IFC_HEADERS}
+${SHARED_ENTITIES_SOURCES} ${SHARED_ENTITIES_HEADERS}
 ${CAMERA_SOURCES} ${CAMERA_HEADERS}
 ${MODEL_SOURCES} ${MODEL_HEADERS}
 ${TEXTURE_SOURCES} ${TEXTURE_HEADERS}
