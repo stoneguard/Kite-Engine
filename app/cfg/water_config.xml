@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<root>
+   <water>
+      <choppy value="1"/>
+      <displacementScale value="6.0"/>
+      <choppiness value="12.0"/>
+      <distortion value="2.0E-3"/>
+      <wavemotion value="0.0"/>
+      <uvScale value="25"/>
+      <tessellationFactor value="90000"/>
+      <tessellationSlope value="0.8"/>
+      <tessellationShift value="0"/>
+      <highDetailRange value="0"/>
+      <specular value="120"/>
+      <emission value="1.0"/>
+      <kReflection value="0.012"/>
+      <kRefraction value="0.01"/>
+      <normalStrength value="0.5"/>
+      <wind>
+         <X value="1"/>
+         <Y value="1"/>
+         <speed value="80"/>
+      </wind>
+      <fft>
+         <resolution value="256"/>
+         <amplitude value="5"/>
+         <L value="1000"/>
+         <capillarwavesSuppression value="0.1"/>
+      </fft>
+      <t_delta value="0.005"/>
+   </water>
+</root>
