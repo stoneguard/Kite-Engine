@@ -6,6 +6,7 @@
 #include "camera/camera.h"
 //entities
 #include "entities/atmosphere/Atmosphere.h"
+#include "entities/water/water.h"
 
 namespace kite
 {
@@ -106,6 +107,7 @@ namespace kite
       switch (type_)
       {
       case kite::WATER:
+         m_renderer.AddEntity(new Water());
          break;
       case kite::ATMOSPHERE:
          m_renderer.AddEntity(new Atmosphere());

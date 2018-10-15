@@ -5,7 +5,7 @@ namespace kite
 {
    Water::Water()
    {
-      p = new WaterImpl();
+      p = new WaterImpl(this);
    }
 
    Water::~Water()

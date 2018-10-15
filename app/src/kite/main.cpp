@@ -78,6 +78,7 @@ int main(int argc, char* argv[])
    if (instance.Init())
    {
       instance.AddObject(kite::ATMOSPHERE);
+      instance.AddObject(kite::WATER);
 
       instance.Launch();
    }
