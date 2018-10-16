@@ -16,7 +16,7 @@ namespace kite
       m_waterCfg.Load(_P("/cfg/water_config.xml"));
 
       m_parent->GetWorldTransform().SetScaling(glm::vec3(ZFAR, 1, ZFAR));
-      m_parent->GetWorldTransform().SetTranslation(glm::vec3(-ZFAR / 2, -40, -ZFAR / 2));
+      m_parent->GetWorldTransform().SetTranslation(glm::vec3(-ZFAR / 2, -800, -ZFAR / 2));
    }
 
    void WaterImpl::Render()

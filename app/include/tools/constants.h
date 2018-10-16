@@ -3,8 +3,8 @@
 
 namespace kite
 {
-   const unsigned SCREEN_WIDTH = 800;
-   const unsigned SCREEN_HEIGHT = 600;   
+   const unsigned SCREEN_WIDTH = 1280;
+   const unsigned SCREEN_HEIGHT = 720;   
 
    //near plane
    const float ZNEAR = 0.1f;
