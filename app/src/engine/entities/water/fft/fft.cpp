@@ -3,6 +3,8 @@
 #include <GL/gl3w.h>
 #include <cmath>
 #include <GLFW/glfw3.h>
+#include "h0k.h"
+#include "Hkt.h"
 
 namespace kite
 {
@@ -17,6 +19,11 @@ namespace kite
       m_N = N;
       m_log_2_N = (int)(std::log(N) / std::log(2));
       
+      //initial equation
+      m_h0k = new H0K(N, L, amplitude, direction, intensity, capillarSupressFactor);
+      //time-depended equation
+      m_hkt = new Hkt(N, L);
+
       m_systemTime = glfwGetTime() * 1000;//ms
    }
    

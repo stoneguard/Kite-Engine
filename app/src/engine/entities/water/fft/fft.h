@@ -6,6 +6,8 @@
 
 namespace kite
 {
+   class H0K;
+   class Hkt;
    /*
       \brief Fast fourier transform model, which makes move pixels within textures like an ocean wave.
    */
@@ -45,16 +47,16 @@ namespace kite
       int               m_N = 0;                   //determine space for output texture divided by 16 (size of patch value)
       float             m_time_accumulator = 0.f;  //accumulate time as with a step determined by m_t_delta
       double            m_systemTime = 0.0;        //start point time. need to get difference between time points
-      float             m_t_delta = 0.f;           //constant time koef. How fast mesh will waving
+      float             m_t_delta = 0.f;           //constant time factor. How fast mesh will waving
       
       //TODO
       /*
          -butterfly
          -twiddle
          -inversion
-         -h0k
-         -h0-K
       */
+      H0K*              m_h0k = nullptr;
+      Hkt*              m_hkt = nullptr;
    
       //for debug purpose
       TextureViewer m_texViewer;

@@ -20,6 +20,9 @@ file(GLOB ATMOSPHERE_HEADERS "entities/atmosphere/*.h")
 #water
 file(GLOB WATER_SOURCES "entities/water/*.cpp")
 file(GLOB WATER_HEADERS "entities/water/*.h")
+##water/fft
+file(GLOB WATER_FFT_SOURCES "entities/water/fft/*.cpp")
+file(GLOB WATER_FFT_HEADERS "entities/water/fft/*.h")
 
 #camera
 file(GLOB CAMERA_SOURCES "camera/*.cpp")
@@ -62,6 +65,9 @@ source_group("Headers\\shaders\\water" FILES ${SHADERS_WATER_HEADERS})
 source_group("Sources\\entities\\water" FILES ${WATER_SOURCES})
 source_group("Headers\\entities\\water" FILES ${WATER_HEADERS})
 
+source_group("Sources\\entities\\water\\fft" FILES ${WATER_FFT_SOURCES})
+source_group("Headers\\entities\\water\\fft" FILES ${WATER_FFT_HEADERS})
+
 source_group("Sources\\camera" FILES ${CAMERA_SOURCES})
 source_group("Headers\\camera" FILES ${CAMERA_HEADERS})
 
@@ -98,6 +104,7 @@ ${TEXTURE_SOURCES} ${TEXTURE_HEADERS}
 ${SHADERS_SOURCES} ${SHADERS_HEADERS} 
 ${ATMOSPHERE_SOURCES} ${ATMOSPHERE_HEADERS}
 ${WATER_SOURCES} ${WATER_HEADERS}
+${WATER_FFT_SOURCES} ${WATER_FFT_HEADERS}
 ${SHADERS_ATMOSPHERE_SOURCES} ${SHADERS_ATMOSPHERE_HEADERS}
 ${SHADERS_WATER_SOURCES} ${SHADERS_WATER_HEADERS} 
 )
