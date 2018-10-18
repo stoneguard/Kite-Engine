@@ -5,6 +5,7 @@
 #include <GLFW/glfw3.h>
 #include "h0k.h"
 #include "Hkt.h"
+#include "twiddle_factors.h"
 
 namespace kite
 {
@@ -19,6 +20,8 @@ namespace kite
       m_N = N;
       m_log_2_N = (int)(std::log(N) / std::log(2));
       
+      //create twiddle factor model. It creates a texture with suitable factors to use it in FFT algorith
+      m_twiddleFactors = new TwiddleFactors(N);
       //initial equation
       m_h0k = new H0K(N, L, amplitude, direction, intensity, capillarSupressFactor);
       //time-depended equation
@@ -29,6 +32,23 @@ namespace kite
    
    FFT::~FFT()
    {
+      if (m_twiddleFactors)
+      {
+         delete m_twiddleFactors;
+         m_twiddleFactors = nullptr;
+      }
+
+      if (m_h0k)
+      {
+         delete m_h0k;
+         m_h0k = nullptr;
+      }
+
+      if (m_hkt)
+      {
+         delete m_hkt;
+         m_hkt = nullptr;
+      }
    }
    
    void FFT::Init()

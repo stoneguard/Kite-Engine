@@ -8,6 +8,7 @@ namespace kite
 {
    class H0K;
    class Hkt;
+   class TwiddleFactors;
    /*
       \brief Fast fourier transform model, which makes move pixels within textures like an ocean wave.
    */
@@ -57,6 +58,7 @@ namespace kite
       */
       H0K*              m_h0k = nullptr;
       Hkt*              m_hkt = nullptr;
+      TwiddleFactors*   m_twiddleFactors = nullptr;
    
       //for debug purpose
       TextureViewer m_texViewer;
