@@ -19,3 +19,10 @@ Launch __configure.bat__ in order to configure project, you will get __./build__
 ## Static water mesh
 
 ![static_water_mesh](https://www.dropbox.com/s/rhfhvg0h5bax28g/static_water_mesh.png?raw=1)
+
+# Credits
+* [OpenGL#1](https://learnopengl.com/Introduction)
+* [OpenGL#2](http://ogldev.atspace.co.uk/index.html)
+* [Terrain rendering](https://blogs.igalia.com/itoral/2016/10/13/opengl-terrain-renderer-rendering-the-terrain-mesh/)
+* [Oreon-Engine](https://github.com/fynnfluegge/oreon-engine)
+* [Atmospheric scattering GPU GEMS](https://developer.nvidia.com/gpugems/GPUGems2/gpugems2_chapter16.html)
