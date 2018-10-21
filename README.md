@@ -11,3 +11,11 @@ Download and unzip [__resource__](https://www.dropbox.com/s/ml4oic4xped4zce/reso
 * README.md
 
 Launch __configure.bat__ in order to configure project, you will get __./build__ directory at app folder. It contains all necessary generated files, launch __kite.bat__. It sets up essential variables and paths and run Visual Studio IDE with generated solution.
+
+## Atmospheric scattering
+
+![atm_sctr](https://www.dropbox.com/s/a05c2ogi1g576p5/atmospheric_scattering.png?raw=1)
+
+## Static water mesh
+
+![static_water_mesh](https://www.dropbox.com/s/rhfhvg0h5bax28g/static_water_mesh.png?raw=1)
