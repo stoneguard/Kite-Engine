@@ -9,6 +9,8 @@ namespace kite
    class H0K;
    class Hkt;
    class TwiddleFactors;
+   class InversionShader;
+   class ButterFlyShader;
    /*
       \brief Fast fourier transform model, which makes move pixels within textures like an ocean wave.
    */
@@ -50,15 +52,11 @@ namespace kite
       double            m_systemTime = 0.0;        //start point time. need to get difference between time points
       float             m_t_delta = 0.f;           //constant time factor. How fast mesh will waving
       
-      //TODO
-      /*
-         -butterfly
-         -twiddle
-         -inversion
-      */
-      H0K*              m_h0k = nullptr;
-      Hkt*              m_hkt = nullptr;
-      TwiddleFactors*   m_twiddleFactors = nullptr;
+      H0K*              m_h0k = nullptr;              //constant initial part of equation
+      Hkt*              m_hkt = nullptr;              //time depended equation
+      TwiddleFactors*   m_twiddleFactors = nullptr;   //initial factors for heightmap texture generation
+      InversionShader*  m_inversionShader = nullptr;  //time depended 
+      ButterFlyShader*  m_butterFlyShader = nullptr;  //time depended 
    
       //for debug purpose
       TextureViewer m_texViewer;

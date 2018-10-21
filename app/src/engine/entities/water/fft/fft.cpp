@@ -6,6 +6,8 @@
 #include "h0k.h"
 #include "Hkt.h"
 #include "twiddle_factors.h"
+#include "shaders/water/butterflyshader.h"
+#include "shaders/water/inversion_shader.h"
 
 namespace kite
 {
@@ -17,6 +19,9 @@ namespace kite
       m_choppy(choopy),
       m_t_delta(t_delta)
    {
+      m_inversionShader = &InversionShader::Instance();
+      m_butterFlyShader = &ButterFlyShader::Instance();
+
       m_N = N;
       m_log_2_N = (int)(std::log(N) / std::log(2));
       
