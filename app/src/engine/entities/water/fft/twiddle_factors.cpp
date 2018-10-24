@@ -11,6 +11,7 @@ namespace kite
       const unsigned int mask = (CHAR_BIT * sizeof(n) - 1);  // assumes width is a power of 2.
    
       c &= mask;
+      //TODO
       return (n << c) | (n >> ((-c)&mask));
    }
    
@@ -19,6 +20,7 @@ namespace kite
       const unsigned int mask = (CHAR_BIT * sizeof(n) - 1);
    
       c &= mask;
+      //TODO
       return (n >> c) | (n << ((-c)&mask));
    }
    
@@ -36,6 +38,7 @@ namespace kite
    {
       m_shader = &TwiddleFactorShader::Instance();
    
+      m_bitReversedSSBO.addData(initBitReversedIndices());
    }
    
    TwiddleFactors::~TwiddleFactors()
@@ -69,7 +72,7 @@ namespace kite
    {
       m_shader->Use();
    
-      //TODO shader storage buffer
+      m_bitReversedSSBO.bindBufferBase(1);
 
       m_shader->setInt("N", m_N);
    

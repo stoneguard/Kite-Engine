@@ -1,6 +1,7 @@
 #ifndef TWIDDLE_FACTORS_H
 #define TWIDDLE_FACTORS_H
 #include "texture/texture.h"
+#include "shader_storage_buffer.h"
 #include <vector>
 
 namespace kite
@@ -29,7 +30,7 @@ namespace kite
       int                     m_log_2_N = 0;
       Texture                 m_t_factors;
       TwiddleFactorShader*    m_shader = nullptr;
-      //TODO shader storage buffer 
+      ShaderStorageBuffer     m_bitReversedSSBO;
    };
 }
 #endif//TWIDDLE_FACTORS_H

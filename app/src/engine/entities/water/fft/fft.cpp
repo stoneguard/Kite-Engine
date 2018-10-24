@@ -58,7 +58,10 @@ namespace kite
    
    void FFT::Init()
    {
-     
+      m_h0k->Render();
+      m_twiddleFactors->Render();
+      m_hkt->SetH0K(m_h0k->GetH0K());
+      m_hkt->SetH0MinusK(m_h0k->GetH0MinusK());
    }
    
    const Texture& FFT::GetDy() const
@@ -78,6 +81,58 @@ namespace kite
    
    void FFT::Render()
    {
+      m_hkt->Render(m_time_accumulator);
 
+      // Dy-FFT
+
+      m_pingpong = 0;
+
+      m_butterFlyShader->Use();
+
+      glBindImageTexture(0, m_twiddleFactors->GetTexture().GetID(), 0, false, 0, GL_READ_WRITE, GL_RGBA32F);
+      glBindImageTexture(1, m_hkt->GetImageDyCoeficcients().GetID(), 0, false, 0, GL_READ_WRITE, GL_RGBA32F);
+      glBindImageTexture(2, m_texPingpong.GetID(), 0, false, 0, GL_READ_WRITE, GL_RGBA32F);
+
+      // 1D FFT horizontal 
+      for (int i = 0; i< m_log_2_N; i++)
+      {
+         m_butterFlyShader->setInt("pingpong", m_pingpong);
+         m_butterFlyShader->setInt("direction", 0);
+         m_butterFlyShader->setInt("stage", i);
+
+         glDispatchCompute(m_N / 16, m_N / 16, 1);
+         glFinish();
+         m_pingpong++;
+         m_pingpong %= 2;
+      }
+
+      //1D FFT vertical 
+      for (int j = 0; j< m_log_2_N; j++)
+      {
+         m_butterFlyShader->setInt("pingpong", m_pingpong);
+         m_butterFlyShader->setInt("direction", 1);
+         m_butterFlyShader->setInt("stage", j);
+
+         glDispatchCompute(m_N / 16, m_N / 16, 1);
+         glFinish();
+         m_pingpong++;
+         m_pingpong %= 2;
+      }
+
+      m_inversionShader->Use();
+      
+      m_inversionShader->setInt("N", m_N);
+      m_inversionShader->setInt("pingpong", m_pingpong);
+
+      glBindImageTexture(0, m_texDy.GetID(), 0, false, 0, GL_READ_WRITE, GL_RGBA32F);
+      glDispatchCompute(m_N / 16, m_N / 16, 1);
+      glFinish();
+
+      double time = glfwGetTime() * 1000;//ms
+
+      //average difference between ticks = 16ms. with m_t_delta = 0.005 will get ~ 0.08 for each tick
+      m_time_accumulator += static_cast<float>((time - m_systemTime) * m_t_delta);
+
+      m_systemTime = glfwGetTime() * 1000;
    }
 }
