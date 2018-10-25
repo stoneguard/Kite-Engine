@@ -10,7 +10,7 @@ Download and unzip [__resource__](https://www.dropbox.com/s/ml4oic4xped4zce/reso
 * LICENSE
 * README.md
 
-Launch __configure.bat__ in order to configure project, you will get __./build__ directory at app folder. It contains all necessary generated files, launch __kite.bat__. It sets up essential variables and paths and run Visual Studio IDE with generated solution.
+Launch __app/configure.bat__ in order to configure project, you will get __app/build__ directory. It contains all necessary generated files, launch __app/build/kite.bat__. It sets up essential variables, paths and run Visual Studio IDE with generated solution.
 
 ## Atmospheric scattering
 
