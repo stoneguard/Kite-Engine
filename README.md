@@ -20,6 +20,10 @@ Launch __app/configure.bat__ in order to configure project, you will get __app/b
 
 ![static_water_mesh](https://www.dropbox.com/s/rhfhvg0h5bax28g/static_water_mesh.png?raw=1)
 
+## Dynamic water mesh
+
+![dynamic_water_mesh](https://www.dropbox.com/s/e8w0mwd36nm43eo/dynamic_water_mesh.png?raw=1)
+
 # Credits
 * [OpenGL#1](https://learnopengl.com/Introduction)
 * [OpenGL#2](http://ogldev.atspace.co.uk/index.html)
