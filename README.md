@@ -10,7 +10,7 @@ Download and unzip [__resource__](https://www.dropbox.com/s/ml4oic4xped4zce/reso
 * LICENSE
 * README.md
 
-Launch __configure.bat__ in order to configure project, you will get __./build__ directory at app folder. It contains all necessary generated files, launch __kite.bat__. It sets up essential variables and paths and run Visual Studio IDE with generated solution.
+Launch __app/configure.bat__ in order to configure project, you will get __app/build__ directory. It contains all necessary generated files, launch __app/build/kite.bat__. It sets up essential variables, paths and run Visual Studio IDE with generated solution.
 
 ## Atmospheric scattering
 
@@ -19,6 +19,10 @@ Launch __configure.bat__ in order to configure project, you will get __./build__
 ## Static water mesh
 
 ![static_water_mesh](https://www.dropbox.com/s/rhfhvg0h5bax28g/static_water_mesh.png?raw=1)
+
+## Dynamic water mesh
+
+![dynamic_water_mesh](https://www.dropbox.com/s/e8w0mwd36nm43eo/dynamic_water_mesh.png?raw=1)
 
 # Credits
 * [OpenGL#1](https://learnopengl.com/Introduction)
