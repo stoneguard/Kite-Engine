@@ -25,12 +25,13 @@ namespace kite
       void Render(const Texture& tex_);
    
    private:
-      Texture m_texNormalMap;
-      float m_strenght = 0.f;
-      int m_N = 0;
-      unsigned m_heightMapTextureID = 0;
+      Texture        m_texNormalMap;         //resulting texture of normals
+      float          m_strenght = 0.f;
+      int            m_N = 0;
+      unsigned       m_heightMapTextureID = 0;
    
-      TextureViewer m_texViewer;
+      //DEBUG
+      TextureViewer  m_texViewer;
    };
 }
 

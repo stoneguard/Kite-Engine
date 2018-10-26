@@ -42,7 +42,7 @@ namespace kite
       auto& shader = NormalMapShader::Instance();
       shader.Use();
    
-      //привыз€ываемс€ к карте высот
+      //bind to hightmap texture
       glActiveTexture(GL_TEXTURE0);
       glBindTexture(GL_TEXTURE_2D, m_heightMapTextureID);
    
