@@ -1,3 +1,10 @@
+set(CMAKE_CONFIGURATION_TYPES "Debug;Release" CACHE STRING "" )
+# default configurations postfix
+set(CMAKE_DEBUG_POSTFIX   "-debug")
+set(CMAKE_RELEASE_POSTFIX "")
+
+set_property(GLOBAL PROPERTY DEBUG_CONFIGURATIONS Debug) 
+
 project(kite)
 
 cmake_minimum_required(VERSION 3.10)

@@ -20,6 +20,6 @@ include_directories(${GLFW_INCLUDE_PATH})
 add_library(tools SHARED ${SOURCES} ${HEADERS} ${PUBLIC_HEADERS})
 set_target_properties(tools PROPERTIES DEBUG_POSTFIX "d")
 
-target_link_libraries(tools ${SOIL_LIBRARY_DEBUG} ${ASSIMP_LIBRARY_DEBUG} ${GLFW_LIBRARY_DEBUG} gl3w)
+target_link_libraries(tools ${SOIL_LIBRARY} ${ASSIMP_LIBRARY} ${GLFW_LIBRARY} gl3w)
   
 
