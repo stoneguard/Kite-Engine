@@ -36,6 +36,10 @@ file(GLOB MODEL_HEADERS "model/*.h")
 file(GLOB TEXTURE_SOURCES "texture/*.cpp")
 file(GLOB TEXTURE_HEADERS "texture/*.h")
 
+#buffer
+file(GLOB BUFFER_SOURCES "buffer/*.cpp")
+file(GLOB BUFFER_HEADERS "buffer/*.h")
+
 ##shaders
 file(GLOB SHADERS_SOURCES "shaders/*.cpp")
 file(GLOB SHADERS_HEADERS "shaders/*.h")
@@ -83,6 +87,9 @@ source_group("Headers\\shaders" FILES ${SHADERS_HEADERS})
 source_group("Sources\\shaders\\atmosphere" FILES ${SHADERS_ATMOSPHERE_SOURCES})
 source_group("Headers\\shaders\\atmosphere" FILES ${SHADERS_ATMOSPHERE_HEADERS})
 
+source_group("Sources\\buffer" FILES ${BUFFER_SOURCES})
+source_group("Headers\\buffer" FILES ${BUFFER_HEADERS})
+
 source_group("Public Headers" FILES ${PUBLIC_HEADERS})
 
 include_directories(${GLM_INCLUDE_PATH})
@@ -107,6 +114,7 @@ ${WATER_SOURCES} ${WATER_HEADERS}
 ${WATER_FFT_SOURCES} ${WATER_FFT_HEADERS}
 ${SHADERS_ATMOSPHERE_SOURCES} ${SHADERS_ATMOSPHERE_HEADERS}
 ${SHADERS_WATER_SOURCES} ${SHADERS_WATER_HEADERS} 
+${BUFFER_SOURCES} ${BUFFER_HEADERS}
 )
 set_target_properties(engine PROPERTIES DEBUG_POSTFIX "d")
 target_link_libraries (engine tools ${ASSIMP_LIBRARY} ${GLFW_LIBRARY} ${PUGIXML_LIBRARY} ${SOIL_LIBRARY} gl3w)

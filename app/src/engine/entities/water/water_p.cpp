@@ -1,6 +1,7 @@
 #include "water_p.h"
 #include "entities/ifc/i3dentity.h"
 #include "shaders/water/water_shader.h"
+#include "shaders/water/water_wireframe_shader.h"
 #include "tools/mesh_generator.h"
 #include "tools/resource_manager.h"
 #include "tools/constants.h"
@@ -10,7 +11,7 @@
 
 namespace kite
 {
-   WaterImpl::WaterImpl(I3DEntity* parent_) : m_parent(parent_), m_texDudv(_R("/textures/water/dudv1.jpg")), m_texCaustics(_R("/textures/water/caustics.jpg"))
+   WaterImpl::WaterImpl(I3DEntity* parent_) : m_parent(parent_), m_reflection(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2), m_texDudv(_R("/textures/water/dudv1.jpg")), m_texCaustics(_R("/textures/water/caustics.jpg"))
    {
       m_texDudv.bind();
       m_texDudv.trilinearFilter();
@@ -93,9 +94,56 @@ namespace kite
       m_fft->GetDz().bind();
       m_shader->setInt("Dz", 2);
 
-      //TODO
-      //light
+      //FS
+	  //light
+      m_shader->setVec3("directional_light.direction", glm::vec3(0.0f, 0.0f, -1.0f));
+	  //shader->setVec3("directional_light.direction", glm::vec3(0.f, 1000.f, -2000.0f));
+      m_shader->setFloat("directional_light.intensity", 1.0f);
+      m_shader->setVec3("directional_light.ambient", glm::vec3(0.38f, 0.28f, 0.28f));
+      m_shader->setVec3("directional_light.color", glm::vec3(1.0f, 0.85f, 0.77f));
+	  
+	  glActiveTexture(GL_TEXTURE3);
+	  m_reflection.GetTexture().bind();
+     m_shader->setInt("waterReflection", 3);
+	  
+	  //so far without refraction
+	  //GL_TEXTURE4
+	  
+	  glActiveTexture(GL_TEXTURE5);
+	  m_texDudv.bind();
+     m_shader->setInt("dudvRefracReflec", 5);
+	  
+     m_shader->setFloat("distortionRefracReflec", m_distortion);
+	  
+	  //UnderWater
+	  glActiveTexture(GL_TEXTURE6);
+	  m_texDudv.bind();
+     m_shader->setInt("dudvCaustics", 6);
+	  
+     m_shader->setFloat("distortionCaustics", 0);
+	  
+	  //UnderWater
+	  glActiveTexture(GL_TEXTURE7);
+	  m_texCaustics.bind();
+     m_shader->setInt("caustics", 7);
+	  
+     m_shader->setFloat("motion", m_motion);
+	  
+	  glActiveTexture(GL_TEXTURE8);
+	  m_normalMap->GetTexture().bind();
+     m_shader->setInt("normalmap", 8);
+	  
+	  m_shader->setFloat("kReflection", m_waterCfg.GetKReflection());
+	  m_shader->setFloat("kRefraction", m_waterCfg.GetKRefraction());
+	  m_shader->setInt("windowWidth", SCREEN_WIDTH);
+	  m_shader->setInt("windowHeight", SCREEN_HEIGHT);
+	  m_shader->setInt("texDetail", m_waterCfg.GetUvScale());
+	  m_shader->setFloat("emission", m_waterCfg.GetEmission());
+	  m_shader->setFloat("specular", m_waterCfg.GetSpecular());
+	  m_shader->setInt("isCameraUnderWater", 0);
 
       m_patch.draw();
+	  
+	  glFinish();
    }
 }

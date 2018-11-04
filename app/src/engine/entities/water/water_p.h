@@ -3,6 +3,7 @@
 #include "entities/patchVBO.h"
 #include "water_cfg.h"
 #include "texture/texture.h"
+#include "entities/water/reflection.h"
 
 namespace kite
 {
@@ -27,6 +28,7 @@ namespace kite
       WaterConfiguration   m_waterCfg;          //configuration parameters of water
       NormalMap*           m_normalMap;
       FFT*                 m_fft = nullptr;
+	   Reflection		      m_reflection;
       glm::vec4            m_clipplane;
       float                m_clip_offset;
       float                m_motion = 0.f;
