@@ -32,6 +32,10 @@ Now you are able to work with project in _Debug_/_Release_ mode by switching cor
 
 ![dynamic_water_mesh](https://www.dropbox.com/s/e8w0mwd36nm43eo/dynamic_water_mesh.png?raw=1)
 
+## Dynamic water lighting
+
+![dynamic_water_lighting](https://www.dropbox.com/s/8bgdma5mttift70/dynamic_water_lighting.png?raw=1)
+
 # Credits
 * [OpenGL#1](https://learnopengl.com/Introduction)
 * [OpenGL#2](http://ogldev.atspace.co.uk/index.html)
