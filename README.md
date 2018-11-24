@@ -21,7 +21,7 @@ Launch __app/configure.bat__ in order to configure project. Make sure your confi
 Change directory to __app/build__ directory. It contains all necessary generated files. Launch __app/build/kite.bat__. It sets up essential variables, paths and run Visual Studio IDE with generated solution(_x64_). 
 Now you are able to work with project in _Debug_/_Release_ mode by switching corresponding setting.
 
-##Run
+## Run
 In order to run application you need to set arguments. Now, there is only one argument __--root [project_path]__
 example: _game --root "../../../../app"_
 
